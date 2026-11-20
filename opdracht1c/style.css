@@ -1,0 +1,125 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: "Times New Roman", serif;
+    background-color: white;
+}
+
+.container {
+    width: 70%;
+    min-height: 580px;
+    margin: 0 auto;
+    border: 3px solid cyan;
+    padding: 2px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 35px 1fr 30px;
+
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+
+    gap: 7px;
+}
+
+header {
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 7px;
+}
+
+header div {
+    border: 1px solid black;
+    padding: 7px;
+}
+
+.header-title {
+    font-size: 14px;
+}
+
+nav {
+    grid-area: nav;
+    border: 1px solid black;
+    padding: 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+nav a {
+    color: blue;
+    font-size: 14px;
+}
+
+main {
+    grid-area: main;
+    border: 1px solid black;
+    padding: 7px;
+}
+
+main h2 {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+main p {
+    font-size: 12px;
+    margin-top: 0;
+}
+
+main hr {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+footer {
+    grid-area: footer;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+}
+
+footer div {
+    border: 1px solid black;
+    padding: 7px;
+    font-size: 12px;
+}
+
+/* Mobiele versie */
+
+@media (max-width: 700px) {
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    main {
+        min-height: 400px;
+    }
+
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
